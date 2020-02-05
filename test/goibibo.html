@@ -17,16 +17,26 @@
       testAccess();
     }
     
-
-
     // Specify an event to listen for
     branch.addListener('didShowJourney', listener);
     
+    document.getElementById('branch-banner-iframe').style.display='none'
+    headNode = document.getElementById('branch-banner-iframe').contentDocument.head.cloneNode(true)
+    bodyNode = document.getElementById('branch-banner-iframe').contentDocument.body.cloneNode(true)
+    ifr = document.createElement('iframe')
+    appendAt = document.getElementById('banner-hook') 
+    appendAt.appendChild(ifr)
+    html = ifr.contentWindow.document.getElementsByTagName('html')[0]
+    h = ifr.contentWindow.document.head
+    b1 = ifr.contentWindow.document.body
+    html.replaceChild(headNode,h)
+    html.replaceChild(bodyNode,b1)
+    
     function testAccess() {
-    var remote = canAccessIFrame(document.getElementById("branch-banner-iframe"));
-    console.log("Remote iframe canAccess: ");
+      var remote = canAccessIFrame(document.getElementById("branch-banner-iframe"));
+      console.log("Remote iframe canAccess: ");
       console.log(remote);
-     }
+    }
 
     function canAccessIFrame(iframe) {
     var html = null;
@@ -44,10 +54,8 @@
   </script>
 </head>
 <body>
-<p>Hello World</p>  
- <div class="mydiv">
-
-</div>
+  <p>Hello World</p>
+    <div class="mydiv"> </div>
 </div>  
 </body>
 </html>
