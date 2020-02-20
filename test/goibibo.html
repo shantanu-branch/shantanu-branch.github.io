@@ -37,6 +37,8 @@
       console.log("Remote iframe canAccess: ");
       console.log(remote);
     }
+    
+    branch.getBrowserFingerprintId(function(err, data) { console.log(data); });
 
     function canAccessIFrame(iframe) {
     var html = null;
