@@ -16,10 +16,11 @@
       div.body.appendChild(journey_clone);
       testAccess();
     }
+    console.log("HELLO WORLD");
     branch.getBrowserFingerprintId(function(err, data) { 
       console.log(data); 
     });
-    console.log("HELLO WORLD");
+    
     
     // Specify an event to listen for
     branch.addListener('didShowJourney', listener);
