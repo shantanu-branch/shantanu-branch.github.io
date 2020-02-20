@@ -16,6 +16,10 @@
       div.body.appendChild(journey_clone);
       testAccess();
     }
+    branch.getBrowserFingerprintId(function(err, data) { 
+      console.log(data); 
+    });
+    console.log("HELLO WORLD");
     
     // Specify an event to listen for
     branch.addListener('didShowJourney', listener);
@@ -37,9 +41,6 @@
       console.log("Remote iframe canAccess: ");
       console.log(remote);
     }
-    
-    branch.getBrowserFingerprintId(function(err, data) { console.log(data); });
-    console.log("HELLO WORLD");
 
     function canAccessIFrame(iframe) {
     var html = null;
